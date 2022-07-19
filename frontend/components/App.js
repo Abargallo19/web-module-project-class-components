@@ -66,12 +66,19 @@ this.setState({
 
 
   render() {
+    const { list } = this.state;
     return (
       <div>
         Todo App
         <div> 
-        <TodoList  />
-        <Form />
+        <TodoList
+          toggle={this.toggleCompleted}
+          list={list}
+        />
+
+        <Form 
+        addTodo= {this.addTodo}
+        />
         </div>
       </div>
     )
