@@ -23,6 +23,16 @@ export default class App extends React.Component {
     super()
     this.state = {
       list: [
+        {
+          name: 'Allesandria project',
+          id: Math.floor(Math.random() * 1000),
+          completed: false
+        },
+        {
+          name: 'wash dog',
+          id: Math.floor(Math.random() * 1000),
+          completed: false
+        }
 
       ]
     }
@@ -31,7 +41,7 @@ export default class App extends React.Component {
 addTodo = (task) => {
   const newTask = {
     name: task,
-    id: Date.now(),
+    id: Math.floor(Math.random() * 1000),
     completed: false
   };
   this.setState({
@@ -43,27 +53,23 @@ addTodo = (task) => {
 toggleCompleted = (id) => {
   this.setState({
     list: this.state.list.map(task => {
-      if (list.id === id){
+      if (task.id === id){
         return {
           ...list, completed: !list.completed
         }
       }
-      return list
+      return task
     })
   })
 }
 
-
 clearCompleted = () => {
-this.setState({
-  list: this.state.list.filter(item => !item.completed)
-})
-
-
+  this.setState({
+    ...this.state, list: this.state.list.filter(task => {
+      return (task.completed === false)
+    })
+  })
 }
-
-
-
 
   render() {
     const { list } = this.state;
@@ -80,6 +86,7 @@ this.setState({
         addTodo= {this.addTodo}
         />
         </div>
+        <button onClick={this.clearCompleted} className= "clear">Clear Finished Tasks</button>
       </div>
     )
   }

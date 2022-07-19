@@ -23,11 +23,24 @@ handleSubmit = e => {
 }
 
 
+
+
   render() {
+    
     return (
+      <form onSubmit={this.handleSubmit}>
       <div>
-        Form
+        <input 
+        type= "text"
+        name= "task"
+        onChange= {this.handleChange}
+        value= {this.state.input}
+        />
+        <button className = "add-todo">Add New Todo</button>
+        
       </div>
+      </form>
     )
+    
   }
 }
