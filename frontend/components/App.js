@@ -22,7 +22,7 @@ export default class App extends React.Component {
   constructor(){
     super()
     this.state = {
-      List: [
+      list: [
 
       ]
     }
@@ -33,10 +33,20 @@ addTodo = (task) => {
     name: task,
     id: Date.now(),
     completed: false
-  }
-
+  };
+  this.setState({
+    list: [...this.state.list, newTask]
+  })
 }
 
+
+clearCompleted = () => {
+this.setState({
+  list: this.state.list.filter(item => !item.completed)
+})
+
+
+}
 
 
 
