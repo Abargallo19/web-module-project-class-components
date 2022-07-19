@@ -19,19 +19,36 @@ const testList = [
 
 export default class App extends React.Component {
 
-constructor(){
-  super()
-  this.state = {
-    todolist: testList
+  constructor(){
+    super()
+    this.state = {
+      List: [
+
+      ]
+    }
   }
+
+addTodo = (task) => {
+  const newTask = {
+    name: task,
+    id: Date.now(),
+    completed: false
+  }
+
 }
+
+
+
 
 
   render() {
     return (
       <div>
         Todo App
-       <TodoLis
+        <div> 
+        <TodoList  />
+        <Form />
+        </div>
       </div>
     )
   }
