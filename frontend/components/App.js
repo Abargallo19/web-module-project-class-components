@@ -40,6 +40,20 @@ addTodo = (task) => {
 }
 
 
+toggleCompleted = (id) => {
+  this.setState({
+    list: this.state.list.map(task => {
+      if (list.id === id){
+        return {
+          ...list, completed: !list.completed
+        }
+      }
+      return list
+    })
+  })
+}
+
+
 clearCompleted = () => {
 this.setState({
   list: this.state.list.filter(item => !item.completed)
