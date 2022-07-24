@@ -6,14 +6,13 @@ export default class Todo extends React.Component {
   }
 
   render() {
+    
     return (
-      <div>
-        
+      
       <li onClick={this.handleClick}>
-        {this.props.task.name} {this.props.task.completed ? '\u2713' : '' }
+        {this.props.task} {this.props.completed ? '\u2713' : '' }
       </li>
 
-      </div>
     )
   }
 }

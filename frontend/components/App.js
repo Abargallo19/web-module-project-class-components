@@ -73,15 +73,27 @@ clearCompleted = () => {
 
   render() {
     const { list } = this.state;
+    
     return (
       <div>
         Todo App
-        <div> 
         <TodoList
           toggle={this.toggleCompleted}
           list={list}
         />
 
+        {/* <div>
+          <ul>
+            {
+              list.map(todo => {
+                return (<li> {todo.name}</li>)
+            })
+          }
+          </ul>
+        </div> */}
+        
+        <div> 
+      
         <Form 
         addTodo= {this.addTodo}
         />

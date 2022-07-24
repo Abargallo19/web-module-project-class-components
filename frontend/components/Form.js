@@ -14,7 +14,10 @@ handleChange = e => {
   })
 }
 
+
+
 handleSubmit = e => {
+  console.log(this.props)
   e.preventDefault();
   this.props.addTodo(this.state.input);
   this.setState({
