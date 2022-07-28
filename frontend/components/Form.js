@@ -32,7 +32,7 @@ handleSubmit = e => {
     
     return (
       <form onSubmit={this.handleSubmit}>
-      <div>
+     
         <input 
         type= "text"
         name= "task"
@@ -41,7 +41,7 @@ handleSubmit = e => {
         />
         <button className = "add-todo">Add New Todo</button>
         
-      </div>
+    
       </form>
     )
     

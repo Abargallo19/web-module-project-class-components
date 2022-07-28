@@ -1,15 +1,15 @@
 import React from 'react'
 
 export default class Todo extends React.Component {
-  handleClick = () => {
-    this.props.toggle(this.props.key.id);
-  }
+  // handleClick = () => {
+  //   this.props.toggle(this.props.id);
+  // }
 
   render() {
     
     return (
       
-      <li onClick={this.handleClick}>
+      <li onClick={() => toggleCompleted()}>
         {this.props.task} {this.props.completed ? '\u2713' : '' }
       </li>
 

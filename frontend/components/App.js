@@ -11,7 +11,7 @@ const testList = [
   },
   {
     name: 'wash dog',
-    id: Date.now(),
+    id: 7,
     completed: false
   }
 ]
@@ -22,19 +22,7 @@ export default class App extends React.Component {
   constructor(){
     super()
     this.state = {
-      list: [
-        {
-          name: 'Allesandria project',
-          id: Math.floor(Math.random() * 1000),
-          completed: false
-        },
-        {
-          name: 'wash dog',
-          id: Math.floor(Math.random() * 1000),
-          completed: false
-        }
-
-      ]
+      list: testList
     }
   }
 
@@ -43,9 +31,12 @@ addTodo = (task) => {
     name: task,
     id: Math.floor(Math.random() * 1000),
     completed: false
-  };
+  }; 
+
+  const newList = [...this.state.list, newTask]
+  
   this.setState({
-    list: [...this.state.list, newTask]
+    list: newList
   })
 }
 
@@ -53,12 +44,12 @@ addTodo = (task) => {
 toggleCompleted = (id) => {
   this.setState({
     list: this.state.list.map(task => {
-      if (task.id === id){
+      if (id === task.id){
         return {
-          ...list, completed: !list.completed
+          ...task, completed: !task.completed
         }
       }
-      return task
+      return task;
     })
   })
 }
@@ -69,17 +60,18 @@ clearCompleted = () => {
       return (task.completed === false)
     })
   })
+  
 }
 
   render() {
-    const { list } = this.state;
-    
+    // const { list } = this.state;
+      
     return (
       <div>
         Todo App
         <TodoList
           toggle={this.toggleCompleted}
-          list={list}
+          list={this.state.list}
         />
 
         {/* <div>
@@ -92,12 +84,11 @@ clearCompleted = () => {
           </ul>
         </div> */}
         
-        <div> 
       
         <Form 
         addTodo= {this.addTodo}
         />
-        </div>
+        
         <button onClick={this.clearCompleted} className= "clear">Clear Finished Tasks</button>
       </div>
     )
